@@ -1,0 +1,101 @@
+
+
+/*FOOTER*/
+
+.footer {
+	width: 100%;
+	position: relative;
+	overflow: hidden;
+	padding: 50px 0px 40px 0px;
+	text-align: center;
+}
+
+.footer_back_img {
+	position: absolute;
+	max-width: 100%;
+	min-height: 100%;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	z-index: -1;
+}
+
+.footer_logo {
+	width: 340px;
+}
+
+.footer_text {
+	font-size: 14px;
+	font-family: 'Roboto', Arial, sans-serif;
+	max-width: 700px;
+	color: #ffffff;
+	text-align: center;
+	margin-inline: auto;
+	margin-top: 20px;
+}
+
+.footer_medias {
+	display: grid;
+	margin-inline: auto;
+	grid-template-columns: repeat(4, 1fr);
+	grid-column-gap: 20px;
+	width: fit-content;
+	margin-top: 9px;
+	padding-bottom: 10px;
+}
+
+.footer_media_link_f {
+	width: 44px;
+	height: 44px;
+	background-color: #3f51b5;
+	position: relative;
+}
+
+
+.footer_media_link_i {
+	width: 44px;
+	height: 44px;
+	background: radial-gradient(circle farthest-corner at 35% 90%,#fec564,transparent 50%),radial-gradient(circle farthest-corner at 0 140%,#fec564,transparent 50%),radial-gradient(ellipse farthest-corner at 0 -25%,#5258cf,transparent 50%),radial-gradient(ellipse farthest-corner at 20% -50%,#5258cf,transparent 50%),radial-gradient(ellipse farthest-corner at 100% 0,#893dc2,transparent 50%),radial-gradient(ellipse farthest-corner at 60% -20%,#893dc2,transparent 50%),radial-gradient(ellipse farthest-corner at 100% 100%,#d9317a,transparent),linear-gradient(#6559ca,#bc318f 30%,#e33f5f 50%,#f77638 70%,#fec66d 100%);;
+	position: relative;
+}
+
+
+.footer_media_link_y {
+	width: 44px;
+	height: 44px;
+	background-color: #ff0000;
+	position: relative;
+}
+
+
+.footer_media_link_t {
+	width: 44px;
+	height: 44px;
+	background-color: #179cde;
+	position: relative;
+}
+
+.footer_media_link:hover {
+	opacity: .8;
+	transition: all 0.3s ease;
+
+}
+
+.footer_media_link svg {
+	position: absolute;
+	color: #f1f1f1;
+	height: 16px;
+	width: 16px;
+	top: calc(50% - 8px);
+	left: calc(50% - 8px);
+}
+
+.under_footer {
+	font-size: 11px;
+	color: #616161;
+	font-family: 'Roboto', Arial, sans-serif;
+	width: 100%;
+	text-align: center;
+	background-color: #111111;
+	padding: 11px 0;
+}
