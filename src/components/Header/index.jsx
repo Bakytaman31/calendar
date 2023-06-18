@@ -1,11 +1,53 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import './style.css';
 import logo from './images/logo.svg';
+import standart from './images/standart.svg';
+import uvel from './images/uvel.svg';
+import kg from './images/kg.png';
+import ru from './images/ru.png';
 import { Link } from 'react-router-dom';
-import {onBurgerClick, onCloseClick, onLangClick, onUvelClick} from './func';
+import { useTranslation } from 'react-i18next';
+
+export default function Header() {
+
+	const {t, i18n} = useTranslation();
+
+		const nav = useRef();
+		const langUnderBlock = useRef();
+		const uvelUnderBlock = useRef();
+		const back = useRef();
+	
+	 const onBurgerClick = () => {
+		console.log(nav.current)
+		nav.current.classList.toggle(`burger-active`);
+		back.current.classList.toggle(`header__logo_active`);
+	};
+
+	 const onCloseClick = () => {
+		nav.current.classList.remove(`burger-active`);
+		back.current.classList.remove(`header__logo_active`);
+	};
+
+	 const onLangClick = () => {
+		if (langUnderBlock.current.classList.contains(`under_header__sublist_unactive`)) {
+			langUnderBlock.current.classList.remove(`under_header__sublist_unactive`);
+		} else {
+			langUnderBlock.current.classList.add(`under_header__sublist_unactive`);
+		}
+	};
 
 
-export default function index() {
+	 const onUvelClick = () => {
+		if (uvelUnderBlock.current.classList.contains(`under_header__sublist_unactive`)) {
+			uvelUnderBlock.current.classList.remove(`under_header__sublist_unactive`);
+		} else {
+			uvelUnderBlock.current.classList.add(`under_header__sublist_unactive`);
+		}
+	};
+
+	const changeLang = lang => {
+		i18n.changeLanguage(lang);
+	  }
   return (
     <header className="header">
 		<div className="header__container">
@@ -18,12 +60,12 @@ export default function index() {
 				</div>
 
 
-				<Link to="/" className='header__logo' relative="path">
+				<Link to="/" className='header__logo' relative="path" ref={back}>
 					<img src={logo} alt=""/>
 				</Link>
 
 
-				<nav className="header__menu">
+				<nav className="header__menu" ref={nav}>
           <Link to="/" className='header__logo_burger' relative="path">
 						<img src="./images/logo.svg" alt=""/>
           </Link>
@@ -100,31 +142,38 @@ export default function index() {
 					</ul>
 
 					<ul className="header__sublist">
-						<li id="first_menu" onClick={onLangClick}>
+						<li id="first_menu" onClick={onUvelClick}>
 							<a href="#" className="header__link">
-								<img src="./images/standart.svg" alt=""/>
+								<img src={standart} alt=""/>
 								<span className="with-after">Стандартный</span>
 							</a>
 
-							<div className="under_header__sublist under_header__sublist_unactive">
+							<div className="under_header__sublist under_header__sublist_unactive" ref={uvelUnderBlock}>
 								<a href="#">
-									<img src="./images/uvel.svg" alt=""/>
+									<img src={uvel} alt=""/>
 									<span>Увеличенный</span>
 								</a>
 							</div>
 						</li>
 
-						<li id="last_menu" onClick={onUvelClick}>
-							<a href="#" className="header__link">
-								<img src="./images/ru.png" alt=""/>
+						<li id="last_menu" onClick={onLangClick}>
+							{i18n.language === "RU" ? <a href="#" className="header__link" onClick={() => changeLang("RU")}>
+								<img src={ru} alt=""/>
 								<span className="with-after">Русский</span>
-							</a>
+							</a> : <a href="#" className="header__link" onClick={() => changeLang("KG")}>
+								<img src={kg} alt=""/>
+								<span className="with-after">Кыргызча</span>
+							</a>}
+							
 
-							<div className="under_header__sublist under_header__sublist_unactive">
-								<a href="#">
-									<img src="./images/kg.png" alt=""/>
-									<span>Кыргызча</span>
-								</a>
+							<div className="under_header__sublist under_header__sublist_unactive" ref={langUnderBlock}>
+								{i18n.language === "RU" ? <a href="#" onClick={() => changeLang("KG")}>
+									<img src={kg} alt=""/>
+									<span>Кыргызский</span>
+								</a>: <a href="#" onClick={() => changeLang("RU")}>
+									<img src={ru} alt=""/>
+									<span>Орусча</span>
+								</a>}
 							</div>
 						</li>
 					</ul>

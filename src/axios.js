@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: "http://test-calender-server.onrender.com/",
+  baseURL: "https://calendar-min-culture.onrender.com/",
 });
 
 instance.interceptors.request.use((config) => {

@@ -10,8 +10,9 @@ export default function AllEvents() {
     React.useEffect(() => {
         const fetchData = async () => {
           setLoading(true);
-          await axios.get('/event')
+          await axios.get('/event/')
           .then((res) => {
+            console.log(res.data)
             setPosts((res.data).reverse());
           })
           .catch((err) => {
@@ -56,8 +57,13 @@ export default function AllEvents() {
     </div>
             
     <div className="events-content">
-        {posts.map(() => (
-            <EventCard/>
+        {posts.map((post) => (
+            <EventCard
+                id={post.id}
+                nameRu={post.nameRu}
+                nameKg={post.nameKg}
+                date={post.stareDateTime}
+            />
         ))}
     </div>
 </div>

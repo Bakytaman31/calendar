@@ -1,0 +1,45 @@
+.full_page {
+	width: 100vw;
+	height: 100vh;
+	position: relative;
+}
+
+.center {
+	position: absolute;
+	left: 50%;
+	top: 40%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+}
+
+.center h1 {
+	font-family: 'Roboto', Arial, sans-serif;
+	text-align: center;
+	font-size: 3.5rem;
+	text-transform: uppercase;
+}
+
+.center p {
+	font-family: 'Roboto', Arial, sans-serif;
+	text-align: center;
+	font-size: 16px;
+	color: #666666;
+	margin-bottom: 40px;
+}
+
+.center a {
+	font-family: 'Roboto', Arial, sans-serif;
+	text-align: center;
+	font-size: 16px;
+	color: #f1f1f1;
+	background-color: #1e73be;
+	text-decoration: none;
+	padding: 10px;
+	display: inline-block;
+}
+
+@media only screen and (max-width:800px) {
+	.center h1 {
+		font-size: 2rem;
+	}
+}

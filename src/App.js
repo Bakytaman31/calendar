@@ -10,7 +10,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAuthMe, selectIsAuth } from './redux/slices/auth';
 import Login from './pages/Login';
-import { CreateEvent } from './pages';
+import { CreateEvent, NotFoundPage } from './pages';
 import Footer from './components/Footer';
 
 function App() {
@@ -29,6 +29,7 @@ function App() {
         <Route path="/eventPage" element={<EventPage />} />
         <Route path="/allEvents" element={<AllEvents/>} />
         <Route path="/createEvent" element={<CreateEvent/>} />
+        <Route path="*" element={<NotFoundPage/>} />
         
       </Routes>
       <ScrollToTop />

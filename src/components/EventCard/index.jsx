@@ -4,7 +4,15 @@ import img from './images/def_img.png';
 import { Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 
-export default function EventCard() {
+export default function EventCard({
+  id,
+  nameRu,
+  nameKg,
+  date,
+  descriptionRu,
+  descriptionKg,
+  image
+}) {
     const navigate = useNavigate();
 
   function handleClick() {
@@ -12,7 +20,7 @@ export default function EventCard() {
   }
   return (
     <div className="event" >
-        <Link to="eventPage" style={{textDecoration:"none", color:"#1C3467"}} relative='path'>
+        <Link to="/eventPage" style={{textDecoration:"none", color:"#1C3467"}} relative='path'>
             <div className="event-image-div">
                 <img src={img} alt=""/>
                 <div className="event-date">
